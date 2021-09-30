@@ -1,6 +1,6 @@
 # include<bits/stdc++.h>
 using namespace std;
-void swap(int arr[],int i,int j)
+void swap(int arr[],int i, int j)
 {
     int temp=arr[i];
     arr[i]=arr[j];
@@ -16,8 +16,8 @@ void dnfSort(int arr[],int n)
         if(arr[mid]==0)
         {
             swap(arr,low,mid);
-            low++;
             mid++;
+            low++;
         }
         else if(arr[mid]==1)
         {
@@ -34,7 +34,7 @@ int main()
 {
     int arr[]={1,1,2,0,0,1,2,2,1,0};
     dnfSort(arr,10);
-    for(int i=0;i<9;i++)
+    for(int i=0;i<10;i++)
     {
         cout<<arr[i]<<" ";
     }
