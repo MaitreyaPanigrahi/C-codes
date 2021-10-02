@@ -15,37 +15,38 @@ long long merge(int arr[],int l,int mid,int r)
     {
         b[i]=arr[mid+1+i];
     }
-    int i=0,j=0,k=l;
+    int i=0;
+    int j=0;
+    int k=l;
     while(i<n1 && j<n2)
     {
         if(a[i]<=b[j])
         {
             arr[k]=a[i];
-            i++;
             k++;
+            i++;
         }
         else
         {
             arr[k]=b[j];
             inv+=n1-i;
-            j++;
             k++;
+            j++;
         }
-        
     }
     while(i<n1)
-        {
-            arr[k]=a[i];
-            i++;k++;
-        }
-        while(j<n2)
-        {
-            arr[k]=b[j];
-            j++;
-            k++;
-        }
-        return inv;
-
+    {
+        arr[k]=a[i];
+        i++;
+        k++;
+    }
+    while(j<n2)
+    {
+        arr[k]=b[j];
+        j++;
+        k++;
+    }
+    return inv;
 }
 long long mergeSort(int arr[],int l,int r)
 {
@@ -56,10 +57,10 @@ long long mergeSort(int arr[],int l,int r)
         inv+=mergeSort(arr,l,mid);
         inv+=mergeSort(arr,mid+1,r);
         inv+=merge(arr,l,mid,r);
-        
     }
     return inv;
 }
+
 int main()
 {
     int n;
@@ -69,5 +70,6 @@ int main()
     {
         cin>>arr[i];
     }
-    cout<<mergeSort(arr,0,n-1);
+    cout<<mergeSort(arr,0,n-1)<<endl;
+    cout<<endl;
 }
